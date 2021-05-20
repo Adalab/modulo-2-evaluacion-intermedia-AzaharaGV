@@ -1,31 +1,42 @@
-'use strict'
-
-let user_number = document.querySelector ('.select_number');
-let clue = document.querySelector ('.clue');
-let attempts = document.querySelector ('.attemps');
-const button = document.querySelector ('.try_button');
-const result = getRandomNumber(100);
-
+"use strict";
+/*Get Random Number*/
 function getRandomNumber(max) {
-    return Math.ceil(Math.random() * max);
-    }
-console.log (`Número aleatorio`, result );
+  return Math.ceil(Math.random() * max);
+}
 
-    function getSelectNumber () {
-        const select_number = parseInt (select_number.value);
-        console.log (`Número elegido`, + user_number );
-    }
+const randomNumber = getRandomNumber(100);
+console.log("El número random es", randomNumber);
+/* finish RN*/
 
-if (user_number<0 || user_number>100) {
-clue.innerHTML = `El número debe estar
-    entre 1 y 100`;
-} else if (user_number< result) {
-    clue.innerHTML = `Demasiado bajo`;
-} else if (user_number === result) {
-    clue.innerHTML = `Has ganado campeona!!!`;
-} else (user_number > result ) 
-    clue.innerHTML = `Demasiado alto`; 
+const button = document.querySelector(".js-button");
+const clue = document.querySelector(".js-cl");
+const attemps = document.querySelector(".js-att");
+const userNumber = document.querySelector(".js-user_number");
 
+const compare = () => {
+  const userNumber2 = userNumber.value;
+  const userNumbervalue = parseInt(userNumber2);
+  console.log(userNumbervalue);
+  if (userNumbervalue === randomNumber) {
+    clue.innerHTML = "Has ganado";
+  } else if (userNumber2 < 0 || userNumber2 > 100) {
+    clue.innerHTML = `El número tiene que ser mayor que cero y menor que cien`;
+  } else if (userNumber2 < randomNumber) {
+    clue.innerHTML = `El número es mayor que ${userNumber2}`;
+  } else if (userNumber2 > randomNumber) {
+    clue.innerHTML = `El número es menor que ${userNumber2}`;
+  }
+};
+button.addEventListener("click", compare);
 
+/*finish counter*/
 
-button.addEventListener('click', getSelectNumber);
+const userCounter = document.querySelector(".js-att");
+let counter = 0;
+function countTries() {
+  counter += 1;
+  //console.log(`${counter}`);
+  userCounter.innerHTML = `Número de intentos ${counter}`;
+}
+
+button.addEventListener("click", countTries);

@@ -8,21 +8,14 @@
     <title>Módulo 2: Ejercicio de evaluación intermedia</title>
   </head>
   <body>
-    <header>
+    <form class="containerForm" action="#">
       <h1>Adivina el número</h1>
-      <h3>Introduce aquí tu número</h3>
-    </header>
-    <input class="select_number" />
-    <div class="try">
-      <button class="try_button">Prueba!</button>
-    </div>
-    <div class="result">
-      <input
-        class="clue"
-        placeholder="Pista: Escribe el número y dale a Prueba!"
-      />
-      <input class="attempts" placeholder="Número de intentos" />
-    </div>
-    <script class="javascript" type="text/javascript" src="./main.js"></script>
+      <label class="findNumber">Introduce aquí tu número:</label>
+      <input type="number" class="js-user_number userNumber" />
+      <button type="button" class="js-button">Prueba</button>
+      <p class="clue js-cl"></p>
+      <p class="attemps js-att">Número de intentos:0</p>
+    </form>
+    <script type="text/javascript" src="./main.js"></script>
   </body>
 </html>
