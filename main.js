@@ -19,7 +19,7 @@ const compare = () => {
   console.log(userNumbervalue);
   if (userNumbervalue === randomNumber) {
     clue.innerHTML = "Has ganado";
-  } else if (userNumber2 < 0 || userNumber2 > 100) {
+  } else if (userNumber2 < 0 || userNumber2 > 100 || userNumber2 === "") {
     clue.innerHTML = `El número tiene que ser mayor que cero y menor que cien`;
   } else if (userNumber2 < randomNumber) {
     clue.innerHTML = `El número es mayor que ${userNumber2}`;
